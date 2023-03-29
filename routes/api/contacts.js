@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { contacts: ctrl } = require("../../controllers");
 const { validation, ctrlWrapper } = require("../../middlewares");
-const { addContactShema } = require("../../schemas");
+const addContactShema = require("../../schemas");
 
 
 router.get("/", ctrlWrapper(ctrl.getAll));

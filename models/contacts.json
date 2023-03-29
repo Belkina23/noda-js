@@ -18,12 +18,6 @@
     "phone": "(692) 802-2949"
   },
   {
-    "id": "05olLMgyVQdWRwgKfg5J6",
-    "name": "Cyrus Jackson",
-    "email": "nibh@semsempererat.com",
-    "phone": "(501) 472-5218"
-  },
-  {
     "id": "1DEXoP8AuCGYc1YgoQ6hw",
     "name": "Abbot Franks",
     "email": "scelerisque@magnis.org",
@@ -64,5 +58,11 @@
     "name": "Buchik",
     "email": "buch@gmail.com",
     "phone": "+3806245978"
+  },
+  {
+    "id": "94ba44b2-9ae5-4035-a91b-926289f43cce",
+    "name": "Kote",
+    "email": "kote@gmail.com",
+    "phone": "+3892623235"
   }
 ]

@@ -8,7 +8,7 @@ const updateById = async (req, res) => {
     req.body
   );
   if (!updateContact) {
-    throw new NotFound(`Not found`);
+    throw new NotFound(`Not found contact`);
   }
   res.json({
     status: "success",
