@@ -9,9 +9,9 @@ router.get("/", ctrlWrapper(ctrl.getAll));
 
 router.get("/:contactId", ctrlWrapper(ctrl.getById));
 
-router.post("/", ctrl.add);
+router.post("/", validation(addContactShema), ctrl.add);
 
-router.delete("/:contactId", validation(addContactShema), ctrlWrapper(ctrl.deleteById));
+router.delete("/:contactId", ctrlWrapper(ctrl.deleteById));
 
 router.put("/:contactId", validation(addContactShema), ctrlWrapper(ctrl.updateById));
 

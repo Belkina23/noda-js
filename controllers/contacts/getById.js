@@ -8,13 +8,7 @@ const getById = async (req, res) => {
   if (!contactById) {
     throw new NotFound(`Not Found`);
   }
-  res.json({
-    status: "success",
-    code: 200,
-    data: {
-      result: contactById,
-    },
-  });
+  res.status(200).json(contactById);
 };
 
 module.exports = getById;
