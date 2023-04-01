@@ -4,8 +4,13 @@ const validation = (schema) => {
     if (error) {
       error.status = 400;
       next(error);
+    } else if (!req.body) {
+      const error = new Error('missing fields');
+      error.status = 400;
+      next(error);
+    } else {
+      next();
     }
-    next();
   };
 };
 
