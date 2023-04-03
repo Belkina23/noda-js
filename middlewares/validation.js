@@ -1,10 +1,11 @@
 const validation = (schema) => {
   return (req, res, next) => {
     const { error } = schema.validate(req.body);
-    const { key } = error.details[0].context;
+    
 
     if (error) {
       const errorTypes = error.details[0].type;
+      const { key } = error.details[0].context;
 
       switch (errorTypes) {
         case "object.missing":
