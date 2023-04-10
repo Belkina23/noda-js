@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const createHttpError = require("./HttpError");
 
 const validateById = (req, res, next) => {
-  const { contactId } = req.params;
-  if (!mongoose.isValidObjectId(contactId)) {
+  const { id } = req.params;
+  if (!mongoose.isValidObjectId(id)) {
     next(createHttpError(404));
   }
   next();
