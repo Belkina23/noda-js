@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const createHttpError = require("./HttpError");
+const {createHttpError} = require("../middlewares");
 
 const validateById = (req, res, next) => {
   const { id } = req.params;
