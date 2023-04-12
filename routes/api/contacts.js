@@ -9,7 +9,7 @@ router.get("/", ctrlWrapper(ctrl.getAll));
 
 router.get("/:id", validateById, ctrlWrapper(ctrl.getById));
 
-router.post("/", validation(schemaContacts.add), ctrl.add);
+router.post("/", validation(schemaContacts.add), ctrlWrapper(ctrl.add));
 
 router.delete("/:id", validateById, ctrlWrapper(ctrl.deleteById));
 
