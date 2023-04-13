@@ -1,12 +1,11 @@
-const contactOperation = require("../../models/contacts");
+const {Contact} = require("../../models/contacts");
+const { createHttpError } = require("../../middlewares");
 
-const deleteById = async (req, res) => {
-  const { contactId } = req.params;
-  const contactDelete = await contactOperation.removeContact(contactId);
+const deleteById = async (req, res, next) => {
+  const { id } = req.params;
+  const contactDelete = await Contact.findByIdAndDelete(id);
   if (!contactDelete) {
-    res.status(404).json({
-      message: "Not found",
-    });
+    next(createHttpError(404));
     return;
   }
   res.status(200).json({ message: "contact deleted" });

@@ -1,7 +1,7 @@
 const {Contact} = require("../../models/contacts");
 const { createHttpError } = require("../../middlewares");
 
-const updateById = async (req, res, next) => {
+const updateStatusContact = async (req, res, next) => {
   const { id } = req.params;
   const updateContact = await Contact.findByIdAndUpdate(id, req.body, {new: true})
   if (!updateContact) {
@@ -11,4 +11,5 @@ const updateById = async (req, res, next) => {
   res.status(200).json(updateContact);
 };
 
-module.exports = updateById;
+module.exports = updateStatusContact;
+
