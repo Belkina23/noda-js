@@ -5,7 +5,7 @@ const getAll = async (req, res) => {
   const { favorite, page = 1, limit = 20 } = req.query;
   const skip = (page - 1) * limit;
 
-  let query = { owner };
+  const query = { owner };
   if (favorite === 'true') {
     query.favorite = true;
   }
