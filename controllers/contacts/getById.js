@@ -3,7 +3,8 @@ const { createHttpError } = require("../../middlewares");
 
 const getById = async (req, res, next) => {
   const { id } = req.params;
-  const contactById = await Contact.findById(id);
+  const { _id: owner } = req.user;
+  const contactById = await Contact.findById({_id: id, owner});
 
   if (!contactById) {
     next(createHttpError(404));

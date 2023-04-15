@@ -1,6 +1,6 @@
 const validation = (schema) => {
   return (req, res, next) => {
-    const { error } = schema.validate(req.body);
+    const { error, value } = schema.validate(req.body);
     
 
     if (error) {
@@ -24,6 +24,7 @@ const validation = (schema) => {
           break;
       }
     }
+    req.data = value;
     next();
   };
 };

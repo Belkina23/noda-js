@@ -1,9 +1,10 @@
-const {Contact} = require("../../models/contacts");
+const { Contact } = require("../../models/contacts");
 const { createHttpError } = require("../../middlewares");
 
 const deleteById = async (req, res, next) => {
   const { id } = req.params;
-  const contactDelete = await Contact.findByIdAndDelete(id);
+  const { _id: owner } = req.user;
+  const contactDelete = await Contact.findByIdAndDelete({ _id: id, owner });
   if (!contactDelete) {
     next(createHttpError(404));
     return;
