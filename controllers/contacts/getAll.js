@@ -9,6 +9,9 @@ const getAll = async (req, res) => {
   if (favorite === 'true') {
     query.favorite = true;
   }
+  if (favorite === 'false') {
+    query.favorite = false;
+  }
 
   const result = await Contact.find(query, "-createAt", { skip, limit }).sort({ favorite: -1 });
   res.status(200).json(result);
