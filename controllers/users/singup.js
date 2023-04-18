@@ -17,7 +17,7 @@ const singup = async (req, res, next) => {
     subscription,
   });
   await newUser.save();
-  res.status(201).json({ newUser: email, subscription });
+  res.status(201).json({ email, subscription });
 };
 
 module.exports = singup;
