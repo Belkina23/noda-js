@@ -20,8 +20,9 @@ const login = async (req, res, next) => {
 
   const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "23h" });
   await User.findByIdAndUpdate(user._id, {token})
+  const subscription = user.subscription || "starter";
 
-  res.json({ token });
+  res.status(201).json({ token, user: {email, subscription} });
 };
 
 module.exports = login;
