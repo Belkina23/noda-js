@@ -22,7 +22,7 @@ const login = async (req, res, next) => {
   await User.findByIdAndUpdate(user._id, {token})
   const subscription = user.subscription || "starter";
 
-  res.status(201).json({ token, user: {email, subscription} });
+  res.json({ token, user: {email, subscription} });
 };
 
 module.exports = login;
