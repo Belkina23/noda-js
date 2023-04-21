@@ -8,5 +8,5 @@ module.exports = {
     validation,
     ctrlWrapper,
     handleMongooseError,
-    createHttpError
+    createHttpError,
 }
