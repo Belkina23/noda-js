@@ -18,6 +18,11 @@ const contactSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   { versionKey: false }
 );
@@ -26,11 +31,17 @@ contactSchema.post('create', handleMongooseError);
 
 contactSchema.pre('save', async function (next) {
   const contact = this;
-  const existingContact = await Contact.findOne({ name: contact.name });
+  const existingContact = await Contact.findOne({ 
+    $or: [
+      { name: contact.name },
+      { phone: contact.phone },
+      { email: contact.email }
+    ]
+  });
   if (existingContact) {
-      const err = new Error('Name must be unique');
-      err.status = 400;
-      return next(err);
+    const err = new Error('Name, phone, and email must be unique');
+    err.status = 400;
+    return next(err);
   }
   next();
 });
