@@ -4,10 +4,6 @@ const { users: ctrl } = require("../../controllers");
 const { validation, ctrlWrapper, upload } = require("../../middlewares");
 const { authenticate } = require("../../helpers");
 const { schemas } = require("../../models/user");
-const { validation, ctrlWrapper } = require("../../middlewares");
-const { authenticate } = require("../../helpers");
-const { schemas } = require("../../models/user");
-
 
 // singup
 router.post(
