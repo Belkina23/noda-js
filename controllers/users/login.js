@@ -8,6 +8,11 @@ const { SECRET_KEY } = process.env;
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
+
+  if (!user.verify) {
+    next(createHttpError(403, "Email not verified. Please confirm your email"))
+  }
+
   if (!user) {
     next(createHttpError(401, "Email or password is wrong"));
     return;

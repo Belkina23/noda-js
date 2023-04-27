@@ -1,7 +1,9 @@
 const validateById = require('./validateById');
-const authenticate = require('./authenticate')
+const authenticate = require('./authenticate');
+const sendEmail = require('./sendEmail');
 
 module.exports = {
     validateById,
-    authenticate
+    authenticate,
+    sendEmail
 }
