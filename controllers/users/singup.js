@@ -32,7 +32,7 @@ const singup = async (req, res, next) => {
   await newUser.save();
   
 
-  res.status(201).json({ user: { email, subscription, verificationToken } });
+  res.status(201).json({ user: { email, subscription } });
 };
 
 module.exports = singup;

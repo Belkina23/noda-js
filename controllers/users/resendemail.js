@@ -7,7 +7,6 @@ const resendemail = async (req, res, next) => {
   const { email } = req.body;
 
   const user = await User.findOne({ email });
-  console.log(user);
 
   if (!user) {
     next(createHttpError(400, "missing required field email"));
