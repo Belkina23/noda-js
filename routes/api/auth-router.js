@@ -4,10 +4,6 @@ const { users: ctrl } = require("../../controllers");
 const { validation, ctrlWrapper, upload } = require("../../middlewares");
 const { authenticate } = require("../../helpers");
 const { schemas } = require("../../models/user");
-const { validation, ctrlWrapper } = require("../../middlewares");
-const { authenticate } = require("../../helpers");
-const { schemas } = require("../../models/user");
-
 
 // singup
 router.post(
@@ -31,6 +27,16 @@ router.patch(
   authenticate,
   upload.single("avatar"),
   ctrlWrapper(ctrl.updateAvatar)
+);
+
+// verificationToken
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyUser));
+
+// resendemail
+router.post(
+  "/verify",
+  validation(schemas.emailValidation),
+  ctrlWrapper(ctrl.resendemail)
 );
 
 module.exports = router;
